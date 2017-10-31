@@ -32,6 +32,7 @@ def eulerMethod(f,tstart,tend,yinitial,dt):
 def RK4(f,tstart,tend,yinitial,dt):
     timelst = genTime(tstart,tend,dt)
     ylst = [yinitial]
+    dt = timelst[1] - timelst[0]
 
     for i in range(len(timelst)-1):
         y_next = rkStep(ylst[-1],timelst[i],f,dt)
@@ -39,17 +40,18 @@ def RK4(f,tstart,tend,yinitial,dt):
     
     return timelst,ylst
 
+if __name__ == '__main__':
+    def test():
+        tstart = 0.0
+        tend = 1.
+        yinitial = 1.
+        dt = 0.1
+        t,y = eulerMethod(f2,tstart,tend,yinitial,dt)
+        return t,y
 
-def test():
-    tstart = 0.0
-    tend = 1.
-    yinitial = 1.
-    dt = 0.1
-    t,y = eulerMethod(f2,tstart,tend,yinitial,dt)
-    return t,y
+    def f1(t,y): return t-y
 
-def f1(t,y): return t-y
-
-def f2(t,y): return math.exp(t)
-
+    def f2(t,y): return math.exp(t)
+    
+    print(test())
 
