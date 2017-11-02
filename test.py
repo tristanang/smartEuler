@@ -21,8 +21,8 @@ def calcSquareError(f,tlst,ylst):
 
 #Visual Tests
 
-def visualtest(df,f,method):
-    x,y = method(df,0,10,1,1)
+def visualtest(df,f,method,dt):
+    x,y = method(df,0,10,1,dt)
     y_act = list(map(f,x))
     plt.plot(x,y,label='n_int')
     plt.plot(x,y_act,label='act')
@@ -30,6 +30,6 @@ def visualtest(df,f,method):
            ncol=2, mode="expand", borderaxespad=0.)
     plt.show()
 
-#visualtest(f_d,f,adaptiveEuler)
+#visualtest(f_d,f,adaptiveEuler,1)
 
 #Quantitative Tests
