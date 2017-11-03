@@ -31,11 +31,11 @@ def f3(t): #y(0) = 1
 def f3_d(t,y):
     return y*t
 
-def f4(t): #y(0) = 1
-    return 1/(1+t**2)
+def f4(t): #y(0) = 0
+    return math.exp(t) -1 
     
 def f4_d(t,y):
-    return -2*t*y**2
+    return y+1
 
 # List of Functions
 functions = [f,f1,f2,f3,f4]
