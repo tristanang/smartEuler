@@ -4,6 +4,8 @@ import mpmath
 from RKeuler import *
 from smartEuler import *
 import matplotlib.pyplot as plt
+from timeit import timeit
+from time import sleep
 
 def f_d(t,y):
     return math.exp(t) * math.sin(y)
@@ -21,7 +23,8 @@ def calcSquareError(f,tlst,ylst):
 
 #Visual Tests
 
-def visualtest(f,df,initial,tstart,tend,dt,method):
+def visualTest(f,df,initial,tstart,tend,dt,method=adaptiveEuler):
+    plt.close()
     x,y = method(df,tstart,tend,initial,dt)
     y_act = list(map(f,x))
     plt.plot(x,y,label='n_int')
@@ -29,6 +32,31 @@ def visualtest(f,df,initial,tstart,tend,dt,method):
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
            ncol=2, mode="expand", borderaxespad=0.)
     plt.show()
+
+def wrapper(df,initial,tstart,tend,dt,method=adaptiveEuler):
+    def wrapped():
+        return method(df,tstart,tend,initial,dt)
+    return wrapped
+
+def timeWrapper(df,initial,tstart,tend,dt,method=adaptiveEuler):
+    #global wrapped
+    wrapped = wrapper(df,initial,tstart,tend,dt,method=adaptiveEuler)
+    
+    return timeit(wrapped,number=10000)
+
+def time1():
+    return eulerMethod(f_d,0,5,1,0.05)
+
+def time2():
+    return adaptiveEuler(f_d,0,5,1,1)
+
+def time3():
+    return eulerMethod(f_d,0,5,1,0.05)
+
+
+
+#timeit('time1()',setup='from test import time1', number=10000)
+#timeit('time2()',setup='from test import time2', number=10000)
 
 #function to display twolists in image or ?... columns with the actual.
 
