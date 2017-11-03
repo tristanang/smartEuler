@@ -89,7 +89,7 @@ Takes the following arguments:
 
 Returns amount of time taken to run computation 10000 times.
 ```
-calcSquareError(functions[0],adaptiveEuler(diffEQs[0],0,1,1,1))
+timeWrapper(diffEQs[0],1,0,5,1,eulerMethod)
 ```
 
 ## Authors
@@ -100,7 +100,7 @@ calcSquareError(functions[0],adaptiveEuler(diffEQs[0],0,1,1,1))
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
