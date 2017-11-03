@@ -4,63 +4,58 @@ This project is an assignment for the class Differential Equations, MATH229, con
 
 ## Getting Started
 
-Firstly, we want to either pull the git project or clone it into a local directory.
+This project was coded using python3 so make sure python3 is installed on your computer.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+This project requires the following packages:
+Matplotlib
+NumPy
+mpmath
 
+A quick way to install these dependencies would be to use Python Package Index.
+Type the following command into your terminal.
 ```
-pip3
+pip3 install matplotlib numpy mpmath
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Clone or pull the git repository into your local directory.
 
-Say what the step will be
+## Description of Modules
 
-```
-Give the example
-```
+A brief description of the various modules will be included below
 
-And repeat
+### RKeuler
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Contains an implementation of Euler's Method and Runge-Kutta 4. They both accept the following arguments in the following order:
+1) Differential Equation
+2) Beginning timestep for Numerical Integration
+3) End timestep Numerical Integration
+4) Initial Condition
+5) Step Size
 
 ```
-Give an example
+eulerMethod(function,tstart,tend,yinitial,dt)
 ```
 
-### And coding style tests
+### smartEuler
 
-Explain what these tests test and why
-
+Contains our implementation of Euler's Method with an adaptive step size. It accepts the same arguments as the functions in RKeuler
 ```
-Give an example
+adaptiveEuler(function,tstart,tend,yinitial,h)
 ```
+Note: Since step size changes dynamically in this function, dt has been renamed h since.
 
-## Contributing
+### test 
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Tristan Ang** - [tristanang](https://github.com/tristanang)
+* **Desmond Yao**
+* **Scott Ji**
 
 ## License
 
