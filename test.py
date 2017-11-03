@@ -7,37 +7,46 @@ import matplotlib.pyplot as plt
 from timeit import timeit
 from time import sleep
 
-# List of Functions
-
-#functions = [f,f1,f2,f3,f4]
-
-#diffEQs = [f_d,f1,f2_d,f3_d,f4_d]
-
 # The functions in the list
 def f_d(t,y):
     return math.exp(t) * math.sin(y)
     
-def f(t,y=0): #f(0) = 1
+def f(t): #f(0) = 1
     return 2*mpmath.acot(
         math.exp(1-math.exp(t))*mpmath.cot(0.5)
         )
 
-def f1(t,y=0):
+def f1(t):
     return math.exp(t)
 
-def f2(t,y=0):
+def f2(t):
     return math.sin(t)
 
 def f2_d(t,y=0):
     return math.cos(t)
-        
+
+def f3(t): #y(0) = 1
+    return math.exp(math.exp(t)-1)
+
+def f3_d(t,y):
+    return y*math.exp(t)
+
+def f4(t):
+    return 1/(1-t)
+def f4_d(t,y):
+    return y**2
+# List of Functions
+
+functions = [f,f1,f2,f3,f4]
+diffEQs = [f_d,f1,f2_d,f3_d,f4_d]
+
 #
 def calcSquareError(f,method):
     tlst,ylst = method
     y_actual = list(map(f,tlst))
     errorlst = list(map(sub, y_actual, ylst)) 
     errorlst = list(map(lambda x: x**2, errorlst))
-    return sum(errorlst)/len(tlst)
+    return float(sum(errorlst)/len(tlst))
 
 #Visual Tests
 
