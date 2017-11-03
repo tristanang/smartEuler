@@ -60,6 +60,6 @@ def time3():
 
 #function to display twolists in image or ?... columns with the actual.
 
-#visualtest(f,f_d,1,0,10,1,adaptiveEuler)
+#visualTest(f,f_d,1,0,10,1,adaptiveEuler)
     
 #Quantitative Tests
