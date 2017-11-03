@@ -31,12 +31,12 @@ def f3(t): #y(0) = 1
 def f3_d(t,y):
     return y*math.exp(t)
 
-def f4(t):
+def f4(t): #y(0) = 1
     return 1/(1-t)
 def f4_d(t,y):
     return y**2
-# List of Functions
 
+# List of Functions
 functions = [f,f1,f2,f3,f4]
 diffEQs = [f_d,f1,f2_d,f3_d,f4_d]
 
@@ -49,7 +49,6 @@ def calcSquareError(f,method):
     return float(sum(errorlst)/len(tlst))
 
 #Visual Tests
-
 def visualTest(f,df,initial,tstart,tend,dt,method=adaptiveEuler):
     plt.close()
     x,y = method(df,tstart,tend,initial,dt)
@@ -60,6 +59,7 @@ def visualTest(f,df,initial,tstart,tend,dt,method=adaptiveEuler):
            ncol=2, mode="expand", borderaxespad=0.)
     plt.show()
 
+#Time Tests
 def wrapper(df,initial,tstart,tend,dt,method=adaptiveEuler):
     def wrapped():
         return method(df,tstart,tend,initial,dt)
@@ -88,5 +88,3 @@ def time3():
 #function to display twolists in image or ?... columns with the actual.
 
 #visualTest(f,f_d,1,0,10,1,adaptiveEuler)
-    
-#Quantitative Tests
