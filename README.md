@@ -1,6 +1,6 @@
 # smartEuler
 
-One Paragraph of project description goes here
+This project is an assignment for the class Differential Equations, MATH229, conducted during Fall 2017 at Wesleyan University. Our group consists of myself, Scott Ji, and Desmond Yao.
 
 ## Getting Started
 
