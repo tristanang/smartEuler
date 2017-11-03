@@ -11,7 +11,11 @@ def adaptiveEuler(f,tstart,tend,yinitial,h): #h instead of dt used because it is
         y_half = ylst[-1] + (h/2)*(df)
         y_twohalf = y_half + (h/2) * (f(timelst[-1]+(h/2),y_half))
         error = abs(y_twohalf - y_one)
-        h = saf * h * min(max(tol/error,0.3),2)
+        
+        if error != 0:
+            h = saf * h * min(max(tol/error,0.3),2)
+        else:
+            h = saf * h * 2
        
         timelst.append(timelst[-1]+h)
         y_next = ylst[-1] + h * df
